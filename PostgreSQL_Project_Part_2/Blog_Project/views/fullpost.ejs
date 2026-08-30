@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Gaming Rants Blogs</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Akaya Kanadaka' rel='stylesheet'>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <nav class="navbar navbar-default">
+    <img class="img-brand" src="../uploads/fds.jpg" alt="programmer1-img">
+    <div class="logo"><p class="navbar-brand">
+        <span class="navbar-brand2">Gaming Rants</span></p>
+    </div>
+    <form method="GET" action="/search">
+    <table>
+        <tr>
+            <td><input type="text" name="searchItem" placeholder="Search Here" value=""></td>
+            <td><button type="submit">Search</button></td>  
+        </tr>
+    </table>
+    </form>
+  </nav>
+
+<div class="container mt-5">
+
+<br />
+<table>
+<% for(let item of post){ %>
+    <tr>
+        <td><img class="img-display" src="/public/uploads/<%= item.image %>" alt="Post Image" /></td>
+    </tr>
+    <tr>
+        <td><strong><%= item.posttitle %></strong></td>
+        <td><small><%= item.datetime.toLocaleDateString() %></small></td>
+    </tr>
+    <tr>
+        <td><small><a href="/profile/<%= item.author %>" target="_blank"><%= item.author %></a></small></td>
+    </tr>
+    <tr>
+        <td><small><a href="/blogs/<%= item.category %>" target="_blank"><%= item.category %></a></small></td>
+    </tr>
+    <tr>
+        <td><%= item.postdescription %></td>
+    </tr>
+<% } %>
+</table>
+<br /><br />
+<% for(let item of post){ %>
+<form class="small_form" action="/fullpost/<%= item.postid %>" method="post">
+    <input type="text" name="post_id" value="<%= item.postid %>" hidden />
+    <table style="margin-left: 0">
+        <tr>
+            <td><h5>Share Your Thoughts About This</h5></td>
+        </tr>
+        <tr>
+            <td><input type="text" name="name" placeholder="Name" value=""></td>
+        </tr>
+        <tr>
+            <td><input type="email" name="email" placeholder="Email" value=""></td>
+        </tr>
+        <tr>
+            <td><textarea name="comment" rows="6" cols="50"></textarea></td>
+        </tr>
+        <tr>
+            <td><small><button type="submit" name="submit">Submit</button></small></td>
+        </tr>
+    </table>
+</form>
+<% } %>
+
+<br />
+<h5>Comments</h5>
+<table class="table">
+<% for(let comment of comments){ %>
+    <tr>
+        <td><strong><%= comment.name %></strong></td>
+        <td><small><%= comment.datetime.toLocaleDateString() %></small></td>
+    </tr>
+    <tr>
+        <td><small><%= comment.comment %></small></td>
+    </tr>
+<% } %>
+</table>
+</div>
+
+<%- include("partials/footer"); -%>

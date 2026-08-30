@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Gaming Rants Blogs</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Akaya Kanadaka' rel='stylesheet'>
+  <link rel="stylesheet" href="/css/styles.css">
+  <style>
+    .pagination { display: flex; gap: 10px; align-items: center; }
+    .btn { padding: 8px 16px; text-decoration: none; border: 1px solid #ccc; background: #f9f9f9; color: #333; }
+    .btn.disabled { pointer-events: none; background: #eee; color: #999; }
+    .btn.active { font-weight: bold; background: #ddd; }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-default">
+    <img class="img-brand" src="../uploads/fds.jpg" alt="programmer1-img">
+    <div class="logo"><p class="navbar-brand">
+        <span class="navbar-brand2">Gaming Rants</span></p>
+    </div>
+    <form method="GET" action="/search">
+    <table>
+        <tr>
+            <td><input type="text" name="searchItem" placeholder="Search Here" value=""></td>
+            <td><button type="submit">Search</button></td>  
+        </tr>
+    </table>
+    </form>
+  </nav>
+<div class="container mt-5">
+<table>
+<% for(let item of post){ %>
+    <tr>
+        <td><img src="/public/uploads/<%= item.image %>" width="450" height="300" alt="Post Image" /></td>
+    </tr>
+    <tr>
+        <td><strong><%= item.posttitle %></strong></td>
+    </tr>
+    <tr>
+        <td><small><a href="/profile/<%= item.author %>" target="_blank"><%= item.author %></a></small>&nbsp;&nbsp;&nbsp;&nbsp;
+        <small><a href="/blogs/<%= item.category %>" target="_blank"><%= item.category %></a></small></td>
+    </tr>
+    <tr>
+        <td><%= item.postdescription.substring(0, 200) + " ..." %></td>
+    </tr>
+    <tr>
+        <td>
+            <small><a href="/fullPost/<%= item.postid %>" target="_blank" style="float:right;">
+            Read More</a></small>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+<% } %>
+</table>
+<!-- Pagination Controls -->
+<div class="pagination">
+    <% if (currentPage > 1) { %>
+        <a class="btn" href="/blogs?page=<%= currentPage - 1 %>&limit=<%= limit %>">Previous</a>
+    <% } else { %>
+        <a class="btn disabled">Previous</a>
+    <% } %>
+
+    <span>Page <%= currentPage %> of <%= totalPages %></span>
+
+    <% if (currentPage < totalPages) { %>
+        <a class="btn" href="/blogs?page=<%= currentPage + 1 %>&limit=<%= limit %>">Next</a>
+    <% } else { %>
+        <a class="btn disabled">Next</a>
+    <% } %>
+</div>
+</div>
+
+
+
+<%- include("partials/footer"); -%>

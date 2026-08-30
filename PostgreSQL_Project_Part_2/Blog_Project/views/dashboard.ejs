@@ -1,0 +1,60 @@
+<%- include("partials/header"); -%>
+
+<h3 style="text-align:center;">Gaming Rants Blogs Dashboard</h3>
+<nav class="navbar2">
+
+<div class="nav-links">
+    <div class="nav-links2">
+        <a class="navbar-brand2" href="/addpost"> Add New Post </a>
+        <a class="navbar-brand2" href="/categories"> Add New Category </a>
+        <a class="navbar-brand2" href="/comments"> Manage Comments </a>
+    </div>
+</div>
+</nav>
+<table class="central">
+    <tr>
+        <td><h4>Total Posts:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <% if(posts.length === 0) {%>
+                <i><%= 0 %></i>
+            <% }else {%>
+            <i><%= posts.length %></i>
+            <% } %>
+            </h4></td>
+    </tr>
+    <tr>
+        <td><h4>Total Categories:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <% if(categories.length === 0) {%>
+                <i><%= 0 %></i>
+            <% }else {%>
+            <i><%= categories.length %></i>
+            <% } %>
+            </h4></td>
+    </tr>
+    <tr>
+        <td><h4>Total Admins:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <i><%= admins.length %></i></h4></td>
+    </tr>
+    <tr>
+        <td><h4>Total Comments:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <i><%= comments.length %></i></h4></td>
+    </tr>
+</table>
+<h3 style="text-align:center;">Current List Of Bloggers</h3>
+<br />
+<table class="central">
+    <tr>
+    <thead>
+        <th class="central">Name</th>
+        <th class="central">Email</th>
+    </thead>
+    </tr>
+    <% for(let admin of admins){ %>
+    <tr>
+        <td><%= admin.adminname %></td>
+        <td><%= admin.username %></td>
+    </tr>
+    <% } %>
+</table>
+<br /><br /><br />
+
+<%- include("partials/footer"); -%>

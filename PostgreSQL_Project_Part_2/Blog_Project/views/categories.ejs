@@ -1,0 +1,37 @@
+<%- include("partials/header"); -%>
+
+<div class="central">
+<h3>Categories</h3>
+<table class="central">
+<% for(let item of category){ %>
+    <tr>
+        <td><%= item.categorytitle %>
+            &nbsp;&nbsp;&nbsp;
+            <small><a href="/editcategories/<%= item.categoryid %>">Edit</a></small>&nbsp;&nbsp;&nbsp;
+            <small><a href="/deletecategories/<%= item.categoryid %>">Delete</a></small>
+        </td>
+    </tr>
+<% } %>
+</table>
+<br /><br />
+<h3>Add A New Category</h3>
+<p>Please Fill Up Information Below:</p>
+<br /><br />
+<form method="post" action="/categories">
+<table class="central">
+    <tr>
+        <td><b>Category Title:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </b><input type="text" name="categorytitle" value="" size="30" placeholder="Type Title Here"></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td><button type="submit" name="submit" value="Publish">Publish</button>&nbsp;&nbsp;&nbsp;
+        <a href="/dashboard"><input type="button" value="Back To Dashboard"></a></td>
+    </tr>
+</table>
+</form>
+</div>
+
+<%- include("partials/footer"); -%>

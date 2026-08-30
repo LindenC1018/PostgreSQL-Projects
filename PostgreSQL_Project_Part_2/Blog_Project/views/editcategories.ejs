@@ -1,0 +1,25 @@
+<%- include("partials/header"); -%>
+
+<div class="central">
+<h3>Update Current Category</h3>
+<p>Please Fill Up Information Below:</p>
+<br /><br />
+<form method="post" action="/editcategories">
+    <input type="hidden" name="categoryid" value="<%= category.categoryid %>">
+<table>
+    <tr>
+        <th>Category Title:</th>
+        <td><input type="text" name="categorytitle" value="<%= category.categorytitle %>" size="30" placeholder="Type Title Here"></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td><button type="submit" name="submit" value="Publish">Publish Update</td>
+        <td><a href="/dashboard"><input type="button" value="Back To Dashboard"></a></td>
+    </tr>
+</table>
+</form>
+</div>
+
+<%- include("partials/footer"); -%>

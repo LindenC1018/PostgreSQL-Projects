@@ -1,0 +1,54 @@
+<%- include("partials/header"); -%>
+
+<style>
+    .pagination { display: flex; gap: 10px; align-items: center; }
+    .btn { padding: 8px 16px; text-decoration: none; border: 1px solid #ccc; background: #f9f9f9; color: #333; }
+    .btn.disabled { pointer-events: none; background: #eee; color: #999; }
+    .btn.active { font-weight: bold; background: #ddd; }
+</style>
+<h3>My Posts</h3>
+<br />
+<p><a href="/addpost">Add A New Post</a></p>
+<table>
+<% for(let item of post){ %>
+    <tr>
+        <td><img src="/public/uploads/<%= item.image %>" width="150" height="150" alt="Post Image" /></td>
+    </tr>
+    <tr>
+        <td><%= item.posttitle %></td>
+    </tr>
+    <tr>
+        <td><small><%= item.author %></small></td>
+    </tr>
+    <tr>
+        <td><%= item.postdescription.substring(0, 100) + " ..." %></td>
+    </tr>
+    <tr>
+        <td>
+            &nbsp;&nbsp;&nbsp;
+            <small><a href="/editpost/<%= item.postid %>">Edit</a></small>&nbsp;&nbsp;&nbsp;
+            <small><a href="/deletepost/<%= item.postid %>">Delete</a></small>
+        </td>
+    </tr>
+<% } %>
+</table>
+
+<!-- Pagination Controls -->
+<div class="pagination">
+    <% if (currentPage > 1) { %>
+        <a class="btn" href="/posts?page=<%= currentPage - 1 %>&limit=<%= limit %>">Previous</a>
+    <% } else { %>
+        <a class="btn disabled">Previous</a>
+    <% } %>
+
+    <span>Page <%= currentPage %> of <%= totalPages %></span>
+
+    <% if (currentPage < totalPages) { %>
+        <a class="btn" href="/posts?page=<%= currentPage + 1 %>&limit=<%= limit %>">Next</a>
+    <% } else { %>
+        <a class="btn disabled">Next</a>
+    <% } %>
+</div>
+
+
+<%- include("partials/footer"); -%>

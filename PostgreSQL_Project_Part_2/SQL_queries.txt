@@ -1,0 +1,63 @@
+SQL PostgreSQL Blogs
+
+CREATE TABLE admins(
+	adminID SERIAL PRIMARY KEY,
+	username VARCHAR(150),
+	password VARCHAR(150),
+	adminName VARCHAR(150),
+	adminHeadline VARCHAR(255),
+	adminBio VARCHAR(255),
+	adminImage VARCHAR(255),
+	addedBy VARCHAR(150),
+	dateTime TIMESTAMPTZ
+);
+
+CREATE TABLE categories(
+	categoryID SERIAL PRIMARY KEY,
+	categoryTitle VARCHAR(150),
+	categoryAuthor VARCHAR(150),
+	dateTime TIMESTAMPTZ
+);
+
+CREATE TABLE comments(
+	commentID SERIAL PRIMARY KEY,
+	name VARCHAR(150),
+	email VARCHAR(150),
+	comment TEXT,
+	approvedBy VARCHAR(150),
+	status VARCHAR(20),
+	postID INTEGER REFERENCES posts(postID),
+	dateTime TIMESTAMPTZ
+); 
+
+CREATE TABLE posts(
+	postID SERIAL PRIMARY KEY,
+	postTitle VARCHAR(150),
+	category VARCHAR(150),
+	author VARCHAR(150),
+	image VARCHAR(255),
+	postDescription TEXT,
+	dateTime TIMESTAMPTZ
+);
+
+
+-- https://www.youtube.com/shorts/QGI5x7ujd6s 
+
+ALTER TABLE posts 
+ADD COLUMN search_vector tsvector 
+GENERATED ALWAYS AS (
+to_tsvector('english', coalesce(posttitle, '') || '' || coalesce(category, '') 
+ || '' || coalesce(category, '')  || '' || coalesce(author, '') || '' || coalesce(postdescription, ''))
+) STORED;
+
+CREATE INDEX idx_posts_search ON posts USING GIN (search_vector);
+
+
+const searchQuery = `
+  SELECT posttitle, category, author, postdescription, ts_rank(search_vector, websearch_to_tsquery('english', $1)) AS rank
+  FROM posts
+  WHERE search_vector @@ websearch_to_tsquery('english', $1)
+  ORDER BY rank DESC;
+`;
+
+

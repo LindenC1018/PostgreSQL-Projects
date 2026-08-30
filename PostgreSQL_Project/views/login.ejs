@@ -1,0 +1,26 @@
+<%- include('partials/header.ejs'); -%>
+
+<div class="box2">
+<h1>Account Login</h1>
+<form class="item" action="/login" method="POST">
+<table>
+    <tr>
+        <td><label for="email">Email</label></td>
+    </tr>
+    <tr>
+        <td><input type="email" name="username"></td>
+    </tr>
+    <tr>
+        <td><label for="password">Password</label></td>
+    </tr>
+    <tr>
+        <td><input type="password" class="form-control" name="password"></td>
+    </tr>
+    <tr>
+        <td><button type="submit" class="myButton">Login</button></td>
+    </tr>
+</table>
+</form>
+</div>
+
+<%- include('partials/footer.ejs'); -%>

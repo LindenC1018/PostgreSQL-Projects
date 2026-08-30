@@ -1,0 +1,56 @@
+<%- include("partials/header"); -%>
+
+<div class="central">
+<h3>Manage Comments</h3>
+<br /><br />
+<h4>Approved Comments</h4>
+<table class="central">
+    <tr>
+    <thead>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Comment</th>
+        <th>Approve</th>
+		<th>Action</th>
+		<th>Details</th>
+    </thead>
+    </tr>
+    <% for(let item1 of comment1){ %>
+    <tr>
+        <td><%= item1.name %></td>
+        <td><%= item1.email %></td>
+        <td><%= item1.comment %></td>
+        <td><a href="/approvecomment/<%= item1.commentid %>">Approve</a></td>
+        <td><a href="/deletecomment/<%= item1.commentid %>">Delete</a></td>
+        <td><a href="/fullpost/<%= item1.postid %>" target="_blank">Live Preview</td>
+    </tr>
+     <% } %>
+</table>
+<br /><br />
+<h4>Dis-Approved Comments</h4>
+<table class="central">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Comment</th>
+        <th>Approve</th>
+		<th>Action</th>
+		<th>Details</th>
+    </tr>
+    </thead>
+    <% for(let item2 of comment2){ %>
+    <tr>
+        <td><%= item2.name %></td>
+        <td><%= item2.email %></td>
+        <td><%= item2.comment %></td>
+        <td><a href="/disapprovecomment/<%= item2.commentid %>">Dis-Approve</a></td>
+        <td><a href="/deletecomment/<%= item2.commentid %>">Delete</a></td>
+        <td><a href="/fullpost/<%= item2.postid %>" target="_blank">Live Preview</td>
+    </tr>
+    <% } %>
+</table>
+<br /><br />
+</div>
+
+<%- include("partials/footer"); -%>

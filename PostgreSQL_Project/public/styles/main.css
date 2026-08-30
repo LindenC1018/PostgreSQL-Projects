@@ -1,0 +1,176 @@
+html {
+  background-color: #e4e9fd;
+  background-image: url("/images/chores.jpg");
+  /*  -webkit-linear-gradient(65deg, #a683e3 50%, #e4e9fd 50%); */
+  background-size: cover;
+  min-height: 1000px;
+  font-family: "helvetica neue";
+}
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  min-height: 95vh;
+  font-family: "Gloria Hallelujah", cursive;
+}
+main {
+  text-align: center;
+  flex: 1 0 auto;
+}
+h1 {
+  padding: 10px;
+}
+
+.box {
+  max-width: 400px;
+  margin: 50px auto;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+}
+
+#heading {
+  /* background-color: #9b989d; */
+  text-align: center;
+  background:linear-gradient(to bottom, #dbe6c4 5%, #9ba892 100%);
+	background-color:#dbe6c4;
+}
+form.edit {
+  display: flex;
+}
+
+.item {
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.item:last-child {
+  border-bottom: 0;
+}
+
+input[type="checkbox"] {
+  margin: 20px;
+  margin-left: 0;
+}
+
+p {
+  margin: 0;
+  padding: 20px 0;
+  font-size: 20px;
+  color: #00204a;
+}
+
+form {
+  text-align: center;
+  margin-left: 20px;
+}
+
+button.add {
+  min-height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border-color: transparent;
+  background-color: /* #a683e3; */ darkgray; 
+  color: #fff;
+  font-size: 30px;
+  border-width: 0;
+}
+
+button.edit {
+  margin-left: 0px;
+  margin-right: 20px;
+  border: none;
+  background: none;
+}
+
+.icon {
+  height: 20px;
+}
+
+input[type="text"] {
+  text-align: left;
+  height: 60px;
+  top: 10px;
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  font-weight: 200;
+  width: 100%;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  box-shadow: inset 0 -3px 0 0 darkgray;
+}
+
+::placeholder {
+  color: lightgray;
+  opacity: 1;
+}
+
+footer {
+  flex: 0 0 auto;
+  color: black;
+  text-align: center;
+}
+
+table {
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  padding: 5px;
+}
+
+th, td {
+  padding: 10px 15px;    /* Expands the cell height and width internally */
+  font-size: 1.7rem;     /* Makes the text inside cells larger */
+}
+
+.myButton { /* https://www.bestcssbuttongenerator.com/#/20 */
+	box-shadow:inset -3px 28px 14px -3px #f2fadc;
+	background:linear-gradient(to bottom, #dbe6c4 5%, #9ba892 100%);
+	background-color:#dbe6c4;
+	border-radius:6px;
+	border:1px solid #b2b8ad;
+	display:inline-block;
+	cursor:pointer;
+	color:#757d6f;
+	font-family:Courier New;
+	font-size:15px;
+	font-weight:bold;
+	padding:14px 27px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ced9bf;
+}
+.myButton:hover {
+	background:linear-gradient(to bottom, #9ba892 5%, #dbe6c4 100%);
+	background-color:#9ba892;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+input[type="email"] {
+  width: 100%;
+  padding: 12px;
+  margin: 0 0;
+  box-sizing: border-box;
+}
+
+input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  margin: 0 0;
+  box-sizing: border-box;
+}
+
+.box2 {
+  max-width: 600px;
+  margin: 50px auto;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+}

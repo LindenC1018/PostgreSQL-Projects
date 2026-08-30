@@ -1,0 +1,46 @@
+
+<%- include("partials/header"); -%>
+
+<h3>Update Current Post</h3>
+<form class="" action="/editpost" method="post" enctype="multipart/form-data">
+<input type="hidden" name="postid" value="<%= post.postid %>">
+<table>
+    <tr>
+        <th>Post Title:</th>
+        <td><input type="text" name="posttitle" value="<%= post.posttitle %>" placeholder="Type Title Here"></td>
+    </tr>
+    <tr>
+        <th>Choose Category:</th>
+        <td><select name="category" disabled>
+            <% for(let item of category){ %>
+
+            <option><%= post.category %></option>
+            <% } %>
+
+        </select>
+        </td>
+    </tr>
+    <tr>
+        <th>My File:</th>
+        <td><label for="imageSelect" >Select An Image</label>&nbsp;&nbsp;&nbsp;
+        <input type="file" name="image"><br />
+        <img src="/public/uploads/<%= post.image %>" width="150" height="150" alt="Post Image" />
+        </td>	
+    </tr>
+    <tr>
+        <th>Author</th>
+        <td><input type="text" name="author" value="<%= post.author %>" disabled></td>
+    </tr>
+    <tr>
+        <th>Post:</th>
+    <td><textarea name="postdescription" rows="5" cols="80">
+        <%= post.postdescription %></textarea></td>
+    </tr>
+    <tr>
+        <td><input type="submit" name="submit" value="Update"></td>
+        <td><a href="dashboard.php"><input type="button" value="Back To Dashboard"></a></td>
+    </tr>
+</table>
+</form>
+
+<%- include("partials/footer"); -%>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Gaming Rants Blogs</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Akaya Kanadaka' rel='stylesheet'>
+  <link rel="stylesheet" href="/css/styles.css">
+  <style>
+    .pagination { display: flex; gap: 10px; align-items: center; }
+    .btn { padding: 8px 16px; text-decoration: none; border: 1px solid #ccc; background: #f9f9f9; color: #333; }
+    .btn.disabled { pointer-events: none; background: #eee; color: #999; }
+    .btn.active { font-weight: bold; background: #ddd; }
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-default">
+<img class="img-brand" src="../uploads/fds.jpg" alt="programmer1-img">
+<div class="logo"><p class="navbar-brand">
+    <span class="navbar-brand2">Gaming Rants</span></p>
+</div>
+<form method="GET" action="/search">
+<table>
+    <tr>
+        <td><input type="text" name="searchItem" placeholder="Search Here" value=""></td>
+        <td><button type="submit">Search</button></td>  
+    </tr>
+</table>
+</form>
+</nav>
+
+<div class="container mt-5">
+<h2>About The Author</h2>
+<br />
+<img class="img-author" src="/public/uploads/<%= admin.adminimage %>" width="300" height="300" alt="Profile Image" />
+<table>
+    <tr>
+        <td><strong><%= admin.adminname %></strong></td>
+    </tr>
+    <tr>
+        <td></td>
+    </tr>
+    <tr>
+        <td><small><%= admin.adminheadline %></small></td>
+    </tr>
+    <tr>
+        <td><small><%= admin.adminbio %></small></td>
+    </tr>
+</table>
+</div>
+
+
+
+<%- include("partials/footer"); -%>

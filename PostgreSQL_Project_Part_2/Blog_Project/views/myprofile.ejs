@@ -1,0 +1,35 @@
+<%- include("partials/header"); -%>
+
+<h2>Update My Personal Profile</h2>
+<p>Please Update Information Below:</p>
+<form method="post" action="/myprofile" enctype="multipart/form-data">
+    <input type="hidden" name="adminid" value="<%= admin.adminid %>" />
+    <table>
+    <tr>
+        <th>Name:</th>
+        <td><input type="text" name="adminname" placeholder="Your Name here" value="<%= admin.adminname %>"></td>
+    </tr>
+    <tr>
+        <th>Headline:</th>
+        <td><input type="text" name="adminheadline" placeholder="Headline" value="<%= admin.adminheadline %>"></td>
+    </tr>
+    <tr>
+        <th>Biography:</th>
+        <td><textarea name="adminbio" placeholder="Bio" rows="8" cols="80"><%= admin.adminbio %>
+        </textarea></td>
+    </tr>
+    <tr>
+        <th>My File:</th>
+        <td><label for="imageSelect" >Select An Image</label>&nbsp;&nbsp;&nbsp;
+        <input type="file" name="adminimage"><br />
+        <img class="img-author" src="public/uploads/<%= admin.adminimage %>" width="150" height="150" alt="Profile Image" />
+        </td>	
+    </tr>
+    <tr>
+        <td><a href="/dashboard"><input type="button" value="Back To Dashboard"></td>
+        <td></a><input type="submit" name="submit" value="Publish"></td>
+    </tr>
+    </table>
+    </form>
+
+<%- include("partials/footer"); -%>

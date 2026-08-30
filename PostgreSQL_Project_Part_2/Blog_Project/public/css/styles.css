@@ -1,0 +1,218 @@
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+body {
+  font-family: "Gloria Hallelujah", cursive;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.1;
+  z-index: -1; /* Pushes the image behind the text content */
+  
+  /* Replace the URL below with your actual image path */
+  background-image: url('../uploads/controllers.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+ 
+a {
+  color:  #852604;
+  font-size: 1.3rem;
+}
+
+a:hover {
+  color: #dc4109;
+}
+
+.container-fluid {
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+.img-brand {
+    height: 50px;
+    width: 50px;
+    float: left;
+	left: 20px;
+	
+}
+
+
+.img-display {
+  width: 90%;
+  height: 350px;
+  border-radius: 3%;
+}
+
+.img-author {
+  border-radius: 60%;
+}
+
+.navbar {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    letter-spacing: 5px;
+    display: flex;
+    align-items: center;
+    /* background-color: lightgray; */
+    background-image: url('../uploads/clouds1.png');
+    background-size: cover;
+    padding: 15px;
+}
+.navbar-nav  li a:hover {
+    color: #1abc9c !important;
+}
+
+/*
+.navbar-brand {
+  color: #852604;
+}
+
+*/
+
+.navbar-brand2 {
+  font-size: 2.7rem;
+  font-family: 'Akaya Kanadaka';
+  font-weight: bold;
+  padding: 0 55px;
+}
+
+.logo {
+  margin-right: auto; /* Pushes the neighboring nav-links to the far right */
+}
+
+.navbar a {
+  text-decoration: none;
+  padding: 0 15px;
+}
+
+.footer-padding {
+	padding-bottom: 60px;
+}
+
+.footer {
+	position: absolute;
+	text-align: center;
+	bottom: 0;
+	width: 100%;
+	height: 60px;
+	background-image: url('../uploads/ground1.png');
+  background-size: cover;
+}
+
+.footer p {
+	margin-top: 25px;
+	font-size: 12px;
+}
+
+.footer-font {
+  font-size: 1.4rem;
+  color: #1b4d3e;
+  font-weight: bold;
+}
+
+
+table {
+  margin-left: 0;
+  margin-right: auto;
+  width: 90%;
+  padding: 10px;
+  border-collapse: collapse;  
+}
+
+th, td {
+  padding: 10px 15px;    /* Expands the cell height and width internally */
+  font-size: 1.7rem;     /* Makes the text inside cells larger */
+}
+
+.myButton { /* https://www.bestcssbuttongenerator.com/#/20 */
+	box-shadow:inset -3px 28px 14px -3px #f2fadc;
+	background:linear-gradient(to bottom, #dbe6c4 5%, #9ba892 100%);
+	background-color:#dbe6c4;
+	border-radius:6px;
+	border:1px solid #b2b8ad;
+	display:inline-block;
+	cursor:pointer;
+	color:#757d6f;
+	font-family: "Gloria Hallelujah", cursive;
+	font-size:25px;
+	font-weight:bold;
+	padding:14px 27px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ced9bf;
+}
+.myButton:hover {
+	background:linear-gradient(to bottom, #9ba892 5%, #dbe6c4 100%);
+	background-color:#9ba892;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+.box2 {
+  margin: 60px auto;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+}
+
+.central {
+  text-align: center;
+  margin: 0 auto;
+}
+/*
+.table {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px;
+  border-collapse: collapse;  
+}
+
+*/
+
+.small_form {
+  font-size: 0.85rem;       /* Reduces text sizing slightly */
+  padding: 4px 8px;         /* Tightens internal spacing */
+  margin-bottom: 10px;      /* Clamps the gap between form fields */
+  box-sizing: border-box;   /* Includes padding inside the defined width */
+  width: 100%;              /* Matches the narrow size of the form parent */
+}
+
+.navbar2 {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    font-size: 15px;
+    letter-spacing: 4px;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+.nav-links2 {
+  display: flex;
+  justify-content: center;
+}
+
+.form-container {
+  display: flex;
+  align-items: center; /* Pushes the form to the right */
+}
