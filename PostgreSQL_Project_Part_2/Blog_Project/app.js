@@ -14,7 +14,7 @@ const aboutContent2 = "Express.js is a minimal, flexible, and open-source backen
 const aboutContent3 = "The website is a blog about video game topics that are either retro or new. Members are allowed to put their experiences through blogs so others can learn from their experience. Enjoy reading.";
 
 const app = express();
-const port = 3000;
+const port = 4006;
 const saltRounds = 10;
 
 env.config();
