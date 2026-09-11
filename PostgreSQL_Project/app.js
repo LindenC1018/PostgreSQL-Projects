@@ -8,7 +8,7 @@ import session from "express-session";
 import env from "dotenv";
 
 const app = express();
-const port = 3000;
+const port = 4005;
 const saltRounds = 10;
 env.config();
 
